@@ -1,28 +1,29 @@
 package top.beif.designpattern.Iterator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author 16116
  */
 public class BookShelf implements Aggregate{
 
-    private Book[] books;
-    private int last;
+    private List<Book> books;
 
-    public BookShelf(int maxsize) {
-        books = new Book[maxsize];
+    public BookShelf() {
+        books = new ArrayList<>();
     }
 
     public void appendBook(Book book) {
-        this.books[last] = book;
-        last++;
+        books.add(book);
     }
 
     public int getLength(){
-        return last;
+        return books.size();
     }
 
     public Book getBookAt(int index) {
-        return books[index];
+        return books.get(index);
     }
 
 
