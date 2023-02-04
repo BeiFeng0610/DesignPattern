@@ -12,7 +12,6 @@ import java.util.Map;
  * @author 16116
  */
 public class IDCardFactory extends Factory {
-    private List<String> owners = new ArrayList<>();
     private Map<Integer, String> idCards = new HashMap<>();
     private static int cid = 0;
 
@@ -24,12 +23,7 @@ public class IDCardFactory extends Factory {
     @Override
     protected void registerProduct(Product product) {
         IDCard idCard = (IDCard) product;
-        owners.add(idCard.getOwner());
         idCards.put(idCard.getCid(), idCard.getOwner());
-    }
-
-    public List<String> getOwners() {
-        return owners;
     }
 
     public Map<Integer, String> getIDCards() {
